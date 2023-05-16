@@ -1,29 +1,28 @@
-function newImage(src, positionLeft, positionBottom){
-    let pineTree = document.createElement('img')
-    pineTree.src = src
-    pineTree.style.position = 'fixed'
-    pineTree.style.left = positionLeft
-    pineTree.style.bottom = positionBottom
-    document.body.append(pineTree) 
+function newImage(url, left, bottom){
+    let object = document.createElement('img')
+    object.src = url
+    object.style.position = 'fixed'
+    object.style.left = left + 'px'
+    object.style.bottom = bottom + 'px'
+    document.body.append(object)
+    return object
 }
-newImage('/assets/pine-tree.png','450px','200px')
 
-newImage('assets/green-character.gif', '100px', '100px')
+function newItem(url, left, bottom){
+    let object = newImage(url, left, bottom)
 
-newImage('assets/tree.png','200px', '300px')
-newImage('assets/pillar.png', '350px', '100px')
-newImage('assets/crate.png', '150px', '200px')
-newImage('assets/well.png', '500px', '425px')
-
-function newItem(src, positionLeft, positionBottom){
-    let sword = document.createElement('img')
-    sword.src = src
-    sword.position = 'fixed'
-    sword.left = `${positionLeft}px`
-    sword.bottom = `${positionBottom}px`
-    document.body.append(sword)
-    sword.addEventListener('click',() =>{
-        sword.remove();
-    })  
+    object.addEventListener('dblclick', () => {
+        object.remove()
+    })
 }
+
+newImage('assets/green-character.gif', 100, 100)
+newImage('assets/tree.png', 200, 300)
+newImage('assets/pillar.png', 350, 100)
+newImage('assets/pine-tree.png', 450, 200)
+newImage('assets/crate.png', 150, 200)
+newImage('assets/well.png', 500, 425)
+
 newItem('assets/sword.png', 500, 405)
+newItem('assets/shield.png', 165, 185)
+newItem('assets/staff.png', 600, 100)
